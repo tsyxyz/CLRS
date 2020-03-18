@@ -43,7 +43,13 @@ endforeach()
 set(CLRS_LIB clrs)
 set(CLRS_BIN clrs_bin)
 
-add_library(${CLRS_LIB} SHARED ${CLRS_SOURCES})
+set(CLRS_SOURCES_LEN "")
+list(LENGTH CLRS_SOURCES CLRS_SOURCES_LEN)
+if(${CLRS_SOURCES_LEN} GREATER 0)
+  add_library(${CLRS_LIB} SHARED ${CLRS_SOURCES})
+else()
+  set(CLRS_LIB "") # has no source files, make CLRS_LIB empty
+endif()
 
 add_executable(${CLRS_BIN} main.cpp ${CLRS_TESTS})
 target_link_libraries(${CLRS_BIN}
