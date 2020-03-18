@@ -15,4 +15,4 @@ void insertion_sort(Container &seq) {
     seq[i + 1] = key;
   }
 }
-}
+}  // namespace ch02
