@@ -31,11 +31,14 @@ void Merge(Container &seq, int p, int q, int r) {
       j = j + 1;
     }
   }
+
+  delete[] L;
+  delete[] R;
 }
 
 template <typename Container>
 void MergeNoSentinel(Container &seq, int p, int q, int r) {
-  // TBD
+  
 }
 
 template <typename Container>
